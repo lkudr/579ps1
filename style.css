@@ -1,0 +1,101 @@
+body{
+  font-family: Avenir, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14pt;
+  background: #E8E8E8;
+}
+
+h1{
+  font-size: 2em;
+  text-align: center;
+  line-height: 1.2;
+  padding: 30px 10px;
+}
+
+h2{
+  font-size: 1.5em;
+  text-align: center;
+  padding: 20px;
+}
+
+h3{
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px;
+}
+
+h4{
+  font-size: 1em;
+  text-align: center;
+  padding-top: 10px;
+}
+
+p{
+  padding: 10px 50px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a.skip{
+  background: white;
+  left: 0;
+  padding: 6px;
+  position: absolute;
+  top: -40px;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
+}
+
+a.skip:focus{
+  top:20px;
+  color: black;
+  text-decoration-style: solid;
+}
+
+*:focus{
+  border: 2px solid black;
+}
+
+footer{
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 5px;
+  text-align: center;
+}
+
+footer a{
+  color: #8996ED;
+}
+
+footer a:focus{
+  color: #ffcf06;
+  border: 2px solid white;
+}
+
+.current a{
+  padding: 5px 10px;
+  background-color: #FFCF06;
+  border: 2px dashed black;
+}
+
+.current a:focus{
+  color: black;
+  border: 2px solid black;
+}
+
+
+/* Keep footer at bottom */
+
+/* footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+} */
