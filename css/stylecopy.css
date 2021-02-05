@@ -1,0 +1,696 @@
+/* Flip card code adjusted from w3schools
+  Retro shadow code from Jorge Epuñan: https://codepen.io/juanbrujo/pen/yGpAK
+  Referenced HW5 and HW4 for nav bar (flex), gallery (flex), and grid, with major adjustments
+  Referenced w3schools along with HW5 animation for rotation animation: https://www.w3schools.com/cssref/css3_pr_rotation.asp
+  Referenced w3schools (https://www.w3schools.com/howto/howto_css_contact_form.asp) and Shay Howe (https://learn.shayhowe.com/html-css/building-forms/) for contact form.
+  Referenced Free Code Camp to keep footer at bottom: https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/
+  Social media icons made by Freepik from Flaticon: https://www.flaticon.com/authors/freepik
+*/
+
+body{
+  font-family: Avenir, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 14pt;
+  background: #E8E8E8;
+}
+
+h1{
+  font-size: 2em;
+  text-align: center;
+  line-height: 1.2;
+  padding: 30px 10px;
+}
+
+/* shadow effect */
+
+.retroshadow {
+    color: #2c2c2c;
+    /* background-color: #d5d5d5; */
+    letter-spacing: .05em;
+    text-shadow:
+      4px 4px 0px #E8E8E8,
+      7px 7px 0px rgba(0, 0, 0, 0.2);
+  }
+
+h2{
+  font-size: 1.5em;
+  text-align: center;
+  padding: 20px;
+}
+
+h3{
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px;
+}
+
+h4{
+  font-size: 1em;
+  text-align: center;
+  padding-top: 10px;
+}
+
+li{
+  text-align: center;
+  list-style-type: none;
+  line-height: 1.5;
+}
+
+p{
+  padding: 10px 50px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+iframe {
+        display: block;
+        width: 100vw;
+        height: 56vw;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+a.skip{
+  background: white;
+  left: 0;
+  padding: 6px;
+  position: absolute;
+  top: -40px;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
+}
+
+a.skip:focus{
+  top:20px;
+  color: black;
+  text-decoration-style: solid;
+}
+
+*:focus{
+  border: 2px solid black;
+}
+
+footer{
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 5px;
+  text-align: center;
+}
+
+footer a{
+  color: #8996ED;
+}
+
+footer a:focus{
+  color: #ffcf06;
+  border: 2px solid white;
+}
+
+footer img{
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+/*
+Keyframes for animation*/
+
+@-webkit-keyframes logo_slide{
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}
+}
+
+@keyframes logo_slide{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+#logo{
+  rotation-point:50% 50%;
+  -webkit-animation-name: logo_slide;
+  -webkit-animation-duration: 5s;
+  animation-name: logo_slide;
+  animation-duration: 5s;
+}
+
+/* Gallery */
+
+.gallery{
+  min-height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery > img{
+  border: 5px #EBBC00 solid;
+  margin: 10px;
+  width: 300px;
+  align-self: center;
+}
+
+.gallery > img:hover, .gallery > img:focus{
+  filter: grayscale(90%);
+}
+
+/* Navbar */
+.nav_container{
+  background: #FFFFFF;
+  /* border-bottom: 3px solid #50C7C7; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+}
+
+.nav_links{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.nav_item{
+  padding: 7px 0px;
+  font-size: 1.2em;
+}
+
+.nav_item a{
+  color: #030C72;
+  text-decoration: none;
+}
+
+.nav_item a:hover, a:focus{
+  color: #856A00;
+  text-decoration: underline;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+}
+
+.nav_container img{
+  width: 30vw;
+}
+
+.current a{
+  padding: 5px 10px;
+  background-color: #FFCF06;
+  border: 2px dashed black;
+}
+
+.current a:focus{
+  color: black;
+  border: 2px solid black;
+}
+
+/* Parallax */
+.parallax {
+  color: #ffffff;
+  height: 400px;
+  background: #5E5E5E;
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Past Events Grid */
+.past_container{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, auto);
+  grid-row-gap: 15px;
+  align-items: center;
+}
+
+.gaelynn, .nothing, .culture, .inclusion, .dom, .gaelynn-image, .nothing-image, .culture-image, .inclusion-video, .dom-image {
+  grid-column: 1;
+}
+
+.gaelynn-image img, .nothing-image img, .culture-image img, .dom-image img{
+  width: 100vw;
+}
+
+.gaelynn {
+  grid-row: 1
+}
+
+.gaelynn-image {
+  grid-row: 2;
+}
+
+.nothing {
+  grid-row: 3;
+}
+
+.nothing-image {
+  grid-row: 4;
+}
+
+.culture {
+  grid-row: 5;
+}
+
+.culture-image {
+  grid-row: 6;
+}
+
+.inclusion {
+  grid-row: 7;
+}
+
+.inclusion-video {
+  grid-row: 8;
+}
+
+.dom {
+  grid-row: 9;
+}
+
+.dom-image {
+  grid-row: 10;
+}
+
+/* Resources Grid */
+
+.res_container{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, auto);
+  grid-row-gap: 15px;
+  align-items: center;
+}
+
+.campus{
+  grid-row: 1;
+}
+
+.accommodations{
+  grid-row: 2;
+}
+
+.accessibility{
+  grid-row: 3;
+}
+
+.other{
+  grid-row: 4;
+}
+
+.general{
+  grid-row: 5;
+}
+
+.dis_culture{
+  grid-row: 6;
+}
+
+.justice{
+  grid-row: 7;
+}
+
+/* Flip Card */
+
+.flip-card {
+  background-color: transparent;
+  width: 50vw;
+  perspective: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flip-card img{
+  width: 50vw;
+}
+
+.flip-card h2{
+  font-size: 1em;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  line-height: 1;
+}
+
+.flip-card p{
+  font-size: .8em;
+  padding: 5px;
+  line-height: 1;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 50vw;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card:focus .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card:focus .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 50vw;
+  height: 26vw;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  margin-bottom: 10vw;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #ffffff;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: #15248A;
+  color: #ffffff;
+  transform: rotateY(180deg);
+}
+
+/* Keep footer at bottom */
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+/* Form */
+textarea{
+  width: 75vw;
+  height: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #030C72;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover, input[type=submit]:focus {
+  background-color: #4F62E3;
+  border: 2px solid black;
+}
+
+/* Add some padding around the form */
+.contact_form {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* Tablet View */
+
+@media screen and (min-width: 784px){
+
+  /* Navbar */
+
+  .nav_container{
+    flex-direction: row;
+  }
+
+  .nav_container img{
+    width: 10vw;
+  }
+
+  .nav_links{
+    flex-direction: row;
+  }
+
+  .nav_item a{
+    margin: 0px 10px;
+    padding: 5px 10px;
+  }
+
+  /* Past Events Grid */
+  .past_container{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, auto);
+  }
+
+  .gaelynn-image img, .nothing-image img, .culture-image img, .dom-image img{
+    width: 50vw;
+  }
+
+  .gaelynn-image, .culture-image, .dom-image {
+    grid-column: 1 / span 1;
+  }
+
+  .nothing-image, .inclusion-video {
+    grid-column: 2 / span 1;
+    justify-self: end;
+  }
+
+  .gaelynn, .culture, .dom {
+    grid-column: 2 / span 1;
+  }
+
+  .nothing, .inclusion {
+    grid-column: 1 / span 1;
+  }
+
+  .gaelynn, .gaelynn-image{
+    grid-row: 1 / span 1;
+  }
+
+  .nothing, .nothing-image{
+    grid-row: 2 / span 1;
+  }
+
+  .culture, .culture-image{
+    grid-row: 3 / span 1;
+  }
+
+  .inclusion, .inclusion-video{
+    grid-row: 4 / span 1;
+  }
+
+  .dom, .dom-image{
+    grid-row: 5 / span 1;
+  }
+
+  iframe {
+    width: 50vw;
+    height: 28vw;
+      }
+
+      /* Resources Grid */
+      .res_container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, auto);
+      }
+
+      .campus, .general{
+        grid-column: 1 / span 2;
+      }
+
+      .campus {
+        grid-row: 1;
+      }
+
+      .accommodations, .dis_culture{
+        grid-column: 1 / span 1;
+      }
+
+      .accessibility, .other, .justice{
+        grid-column: 2 / span 1;
+      }
+
+      .accommodations{
+        grid-row: 2 / span 2;
+      }
+
+      .accessibility{
+        grid-row: 2 / span 1;
+      }
+
+      .other{
+        grid-row: 3 / span 1;
+      }
+
+      .general{
+        grid-row: 4 / span 1;
+      }
+
+      .dis_culture, .justice{
+        grid-row: 5/ span 1;
+        padding-bottom: 60px;
+      }
+
+      /* Flip Card */
+
+      .flip-card h2{
+        font-size: 1.5em;
+        padding: 20px;
+      }
+
+      .flip-card p{
+        padding: 10px 50px;
+        line-height: 1.5;
+        font-size: 1em;
+      }
+}
+/* Laptop view */
+
+@media screen and (min-width: 1000px){
+
+  /* Navbar */
+
+  .nav_container img{
+    width: 100px;
+  }
+
+  /* Past Events Grid */
+  .past_container{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, auto);
+  }
+
+  .gaelynn-image img, .nothing-image img, .culture-image img, .dom-image img{
+    width: 33vw;
+  }
+
+  .gaelynn-image, .culture-image, .dom-image {
+    grid-column: 1 / span 1;
+  }
+
+  .nothing-image, .inclusion-video {
+    grid-column: 3 / span 1;
+    justify-self: end;
+  }
+
+  .gaelynn, .culture, .dom {
+    grid-column: 2 / span 2;
+  }
+
+  .nothing, .inclusion {
+    grid-column: 1 / span 2;
+  }
+
+  .gaelynn, .gaelynn-image{
+    grid-row: 1 / span 1;
+  }
+
+  .nothing, .nothing-image{
+    grid-row: 2 / span 1;
+  }
+
+  .culture, .culture-image{
+    grid-row: 3 / span 1;
+  }
+
+  .inclusion, .inclusion-video{
+    grid-row: 4 / span 1;
+  }
+
+  .dom, .dom-image{
+    grid-row: 5 / span 1;
+  }
+
+  iframe {
+    width: 33vw;
+    height: 18.48vw;
+      }
+
+      /* Resources Grid */
+      .res_container{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+      }
+
+      .campus, .general{
+        grid-row: 1 / span 1;
+      }
+
+      .campus {
+        grid-column: 1 / span 2;
+      }
+
+      .general, .dis_culture, .dis_justice{
+        grid-column: 3 / span 1;
+      }
+
+      .accommodations{
+        grid-row: 2 / span 2;
+        grid-column: 1 / span 1;
+      }
+
+      .accessibility, .dis_culture{
+        grid-row: 2 / span 1;
+      }
+
+      .other, .justice{
+        grid-row: 3 / span 1;
+      }
+
+      .accessibility, .other{
+        grid-column: 2 / span 1;
+      }
+
+      .dis_culture, .justice{
+        grid-column: 3 / span 1;
+      }
+
+      .accommodations, .other, .justice{
+        padding-bottom: 60px;
+      }
+
+      .dis_culture{
+        padding-bottom: 0;
+      }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #logo{
+    animation: none;
+  }
+
+  .flip-card-inner {
+    transition: none;
+  }
+}
