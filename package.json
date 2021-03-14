@@ -1,0 +1,18 @@
+{
+  "name": "ps6",
+  "version": "1.0.0",
+  "description": "579 problem set 6",
+  "main": "myJS.js",
+  "dependencies": {
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
